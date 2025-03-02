@@ -11,7 +11,12 @@ html {
 .page {
   inline-size: 1200px;
   block-size: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   margin: auto;
+  padding: 160px 30px;
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
@@ -35,6 +40,343 @@ fieldset {
 ul,
 ol {
   list-style: none;
+}
+
+
+.content {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 534px;
+  gap: 30px;
+  align-items: start;
+  background-color: #1b1919;
+}
+
+/* общий модуль результата поиска и элементов посика */
+.result {
+  align-self: end;
+  position: relative;
+}
+
+/* подгоняет размер видео под размеры модуля */
+.result__video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  outline: none;
+}
+
+/* результат поиска, видео */
+.result__video-container {
+  display: block;
+  width: 711px;
+  height: 386px;
+  position: relative;
+}
+
+/* модуль поиска */
+.search-form {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 16px;
+}
+
+/* стиль модулей, город и время суток */
+.search-form__fieldset {
+  border: 0;
+}
+
+/* сброс фокуса */
+.search-form__fieldset:active:focus {
+  outline: none;
+}
+
+/* фокус tab-ом в контейнере поиска для всех элементов */
+.search-form__label:has(:not(:active):focus-visible) {
+  outline: 1px #ffffff solid;
+  outline-offset: 2px;
+}
+
+/* меняем цвет боковых полей input-а при клике в поле */
+.search-form__textfield:active {
+  border-right-color: #fff;
+  border-left-color: #fff;
+}
+
+/* стиль inbox, город*/
+.search-form__textfield {
+  width: 225px;
+  height: 27px;
+  border: none;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  appearance: none;
+  outline: none;
+}
+
+/* выравнивание в checkbox */
+.search-form__checkbox-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* рисуем новый checkbox */
+.search-form__pseudo-checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inline-size: 19px;
+  block-size: 19px;
+  border: 1px solid #fff;
+}
+
+/* стиль для отмеченного состояния checkbox-ов*/
+.search-form__checkbox:checked+.search-form__pseudo-checkbox::after {
+  content: '';
+  min-inline-size: 15px;
+  min-block-size: 15px;
+  background-color: #fff;
+}
+
+/* hover для checkbox-ов */
+.search-form__checkbox-list .search-form__label:hover {
+  cursor: pointer;
+  outline: none;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* заголовки h2 */
+.search-form__fieldset-title {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  font-weight: 400;
+  padding-bottom: 5px;
+  padding-top: 2px;
+}
+
+/* контейнер для input-ов */
+.search-form__label {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  gap: 5px;
+}
+
+/* шрифт значений checkbox, input */
+.search-form__label-text {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* общий стиль для кнопок */
+.button {
+  display: block;
+  border: 1px solid #fff;
+  color: #fff;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: inherit;
+  background-color: transparent;
+  outline: none;
+}
+
+/* убираем focus */
+.button:active:focus {
+  outline: none;
+}
+
+/* настройка фокуса tab-ом */
+.search-form .button:focus-visible, .content__list-container .button:focus-visible{
+  outline: 1px #ffffff solid;
+  outline-offset: 2px;
+}
+
+/* настройка стиля при наведении мышью */
+.search-form .button:hover, .content__list-container .button:hover{
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* меняем цвет кнопки "Найти" при нажатии */
+.search-form .button:active, .content__list-container .button:active {
+  background-color: #545050;
+  outline: none;
+}
+
+/* стиль для button Найти */
+.search-form__submit-button {
+  width: 194px;
+  height: 34px;
+  align-self: flex-end;
+}
+
+/* скрыто для скриндера */
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* контейнер для карточек и заголовка */
+.content__details {
+  display: flex;
+  flex-direction: column;
+}
+
+/* заголовок h1 */
+.title {
+  text-transform: uppercase;
+  height: 100%;
+  color: #ffffff;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 75px;
+  line-height: 0.934;
+  margin-bottom: 26px;
+}
+
+/* первая буква заголовка h1 */
+.content__accent {
+  color: #54504f;
+}
+
+/* видимая часть контейнера для видео */
+.content__list-container {
+  width: 399px;
+  height: 298px;
+  overflow-y: auto;
+  position: relative;
+  padding-left: 3px;
+  padding-bottom: 3px;
+}
+
+/* контейнер с карточками для видео */
+.content__list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 1px 3px 30px 0px;
+}
+
+/* сброс фокуса в контенере*/
+.content__list-item:active:focus {
+  outline: none;
+}
+
+/* фокус tab-ом в контейнере карточек */
+.content__list-item:has(:not(:active):focus-visible) {
+  outline: 1px #ffffff solid;
+}
+
+/* активное состояние карточки, красим фон */
+.content__list-item:active {
+  background-color: #545050;
+  outline: none;
+}
+
+/* фокус мышью на карточке меняем заголовок карточки*/
+.content__list-item:has(:not(:active):hover) .content__video-card-title {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+/* фокус мышью на карточке меняем описание карточки*/
+.content__list-item:has(:not(:active):hover) .content__video-card-description  {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* стиль текста-ссылки в карточке */
+.content__card-link {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+/* расположение контента в карточке */
+.content__video-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* контейнер с заголовком карточки */
+.content__video-card-description-container {
+  flex-grow: 1;
+}
+
+/* стиль текста заголовка h2 наименования города в карточке */
+.content__video-card-title {
+  position: relative;
+  top: -3px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 196px;
+}
+
+/* стиль текста, описание <p> в карточке */
+.content__video-card-description {
+  display: -webkit-box;
+  width: 196px;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  position: relative;
+  top: -5px;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  font-weight: 400;
+  letter-spacing: 0.19px;
+  word-spacing: -1px;
+  line-height: 0.95;
+}
+
+/* размеры и расположение изображения (превью) в карточке */
+.content__video-card-thumbnail {
+  height: 103px;
+  width: 194px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* стиль для button Показать ещё */
+.more-button {
+  width: 390px;
+  height: 34px;
 }
 
 /* Кастомный скроллбар */
