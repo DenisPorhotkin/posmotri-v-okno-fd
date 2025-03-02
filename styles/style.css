@@ -204,13 +204,13 @@ ol {
 }
 
 /* настройка фокуса tab-ом */
-.search-form .button:focus-visible, .content__list-container .button:focus-visible{
+.search-form .button:focus-visible, .content__list-container .button:focus-visible {
   outline: 1px #ffffff solid;
   outline-offset: 2px;
 }
 
 /* настройка стиля при наведении мышью */
-.search-form .button:hover, .content__list-container .button:hover{
+.search-form .button:hover, .content__list-container .button:hover {
   cursor: pointer;
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -307,7 +307,7 @@ ol {
 }
 
 /* фокус мышью на карточке меняем описание карточки*/
-.content__list-item:has(:not(:active):hover) .content__video-card-description  {
+.content__list-item:has(:not(:active):hover) .content__video-card-description {
   cursor: pointer;
   text-decoration: underline;
   text-decoration-thickness: 1px;
