@@ -286,11 +286,6 @@ ol {
   outline: 1px #ffffff solid;
 }
 
-/* при фокусе карточки , убираем рамку*/
-.content__list-item:active {
-  outline: none;
-}
-
 /* активное состояние карточки (ссылки в ней), красим фон убираем рамку*/
 .content__card-link:active {
   background-color: #545050;
